@@ -1,7 +1,6 @@
 ### Настройка и управление LVM разделами в Linux
 
-![LVM](https://github.com/user-attachments/assets/80156f35-5697-4df8-9656-3ff056e255fc)
-
+![LVM](https://github.com/user-attachments/assets/f25b220b-7585-449b-b6a6-b2cce02bf425)
 
 ######  Посмотреть наличие LVM
 ```php
