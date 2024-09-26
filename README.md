@@ -1,4 +1,8 @@
 ### Настройка и управление LVM разделами в Linux
+
+![LVM](https://github.com/user-attachments/assets/d2005549-6752-4d6e-8731-6ae520f2ccfa)
+
+
 ######  Посмотреть наличие LVM
 ```php
 $ sudo pvs
