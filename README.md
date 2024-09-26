@@ -36,6 +36,8 @@ $ sudo pvdisplay
 ```php
 $ sudo lvcreate <name_group> -n lv01 -L { 100M | 100G } # Первый вариант
 $ sudo lvcreate test_group --name lv-01 --size 5G # Второй вариант
+$ sudo lvdisplay
+$ sudo vgdisplay
 ```
 ###### Создание нового Тома и перемещение на него 100% свободного места
 ```php
