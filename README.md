@@ -36,6 +36,12 @@ $ sudo vgdisplay
 $ sudo pvdisplay
 ```
 
+###### Удаление Волюм Группы
+```php
+$ sudo vgremove <name_group>  
+$ sudo vgdisplay
+```
+
 ###### 3. Создание/Удаление Логического Тома
 ```php
 $ sudo lvcreate <name_group> -n lv01 -L { 100M | 100G } # Первый вариант
