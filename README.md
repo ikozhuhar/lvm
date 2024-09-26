@@ -1,4 +1,4 @@
-### Create a New LVM Partition
+### Настройка и управление LVM разделами в Linux
 ######  Посмотреть наличие LVM
 ```php
 $ sudo pvs
