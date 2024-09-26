@@ -32,13 +32,19 @@ $ sudo vgdisplay
 $ sudo pvdisplay
 ```
 
-###### 3. Создание Логического Тома
+###### 3. Создание/Удаление Логического Тома
 ```php
 $ sudo lvcreate <name_group> -n lv01 -L { 100M | 100G } # Первый вариант
 $ sudo lvcreate test_group --name lv-01 --size 5G # Второй вариант
 $ sudo lvdisplay
 $ sudo vgdisplay
 ```
+
+###### Удаление Логического Тома
+```php
+$ sudo lvremove test_group lv--02
+```
+
 ###### Создание нового Тома и перемещение на него 100% свободного места
 ```php
 $ sudo lvcreate <name_group> -n <new_name_logical_tom> -l 100%FREE
