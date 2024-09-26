@@ -92,7 +92,7 @@ $ sudo partprobe
 
 ###### Увеличение файловой системы на диске
 ```php
-$ sudo resize2fs /dev/sda1
+$ sudo resize2fs /dev/mapper/test_group-lv-01
 ```
 
 https://www.youtube.com/watch?v=9ttk2-BHMSM
