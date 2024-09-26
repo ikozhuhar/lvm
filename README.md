@@ -21,12 +21,15 @@ $ sudo lvs
 
 ###### 1. Создание физического тома
 ```php
-$ sudo pvcreate /dev/sda1 
+$ sudo pvcreate /dev/sdb1 /dev/sdb2 /dev/sdb3
+$ sudo pvdisplay
 ```
 
 ###### 2. Создание Волюм Группы
 ```php
-$ sudo vgcreate <name_group> /dev/sda1 
+$ sudo vgcreate <name_group> /dev/sdb1 /dev/sdb2 /dev/sdb3
+$ sudo vgdisplay
+$ sudo pvdisplay
 ```
 
 ###### 3. Создание Логического Тома
