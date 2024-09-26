@@ -1,7 +1,7 @@
 ### Create a New LVM Partition
 ######  Посмотреть наличие LVM
 ```php
-pvs
+$ sudo pvs
 ```
 
 ######  Посмотреть Волюм Группы
