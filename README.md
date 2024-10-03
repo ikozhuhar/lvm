@@ -11,6 +11,12 @@
 
 #### 1. [[⬆]](#toc) <a name='availability'>Посмотреть наличие LVM</a>
 
+##### &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+![image](https://github.com/user-attachments/assets/c2d27d37-a182-4ef0-8105-b2d43056856f)
+
+##### &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+![image](https://github.com/user-attachments/assets/072f5c4b-0d9b-46f3-abbf-3b68c9ed2b39)
+
 #### 2. [[⬆]](#toc) <a name='creating_physical_lvm'>Создание физических LVM разделов</a>
 
 #### 3. [[⬆]](#toc) <a name='creating_group_lvm'>Создание группы разделов LVM</a>
