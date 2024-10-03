@@ -17,9 +17,9 @@
 
 #### 4. [[⬆]](#toc) <a name='creating_logical_lvm'>Создание логических томов LVM</a>
 
-#### 5. [[⬆]](#toc) <a name='Изменение размера LVM тома'>resize_lvm</a>
+#### 5. [[⬆]](#toc) <a name='Изменение размера LVM тома'>Изменение размера LVM тома</a>
 
-#### 6. [[⬆]](#toc) <a name='delete_lvm'>delete_lvm</a>
+#### 6. [[⬆]](#toc) <a name='delete_lvm'>Удалить LVM раздел</a>
 
 
 
