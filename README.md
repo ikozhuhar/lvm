@@ -34,9 +34,8 @@
 
 
 
+![f2474b4a-8314-41ea-9f42-1a31eed392fa](https://github.com/user-attachments/assets/e398fa3d-6326-4bbd-8a0f-cff033988c59)
 
-
-![photo_5474222761678331906_w](https://github.com/user-attachments/assets/78636328-478f-4768-b51f-fa57796cc9f2)
 
 
 
