@@ -1,5 +1,36 @@
 ### Настройка и управление LVM разделами в Linux
 
+#### <a name='toc'>Содержание</a>
+
+1. [Посмотреть наличие LVM](#availability)
+2. [Создание физических LVM разделов](#creating_physical_lvm)
+3. [Создание группы разделов LVM](#creating_group_lvm)
+4. [Создание логических томов LVM](#creating_logical_lvm)
+5. [Изменение размера LVM тома](#resize_lvm)
+6. [Удалить LVM раздел](#delete_lvm)
+
+#### 1. [[⬆]](#toc) <a name='availability'>Посмотреть наличие LVM</a>
+
+#### 2. [[⬆]](#toc) <a name='creating_physical_lvm'>Создание физических LVM разделов</a>
+
+#### 3. [[⬆]](#toc) <a name='creating_group_lvm'>Создание группы разделов LVM</a>
+
+#### 4. [[⬆]](#toc) <a name='creating_logical_lvm'>Создание логических томов LVM</a>
+
+#### 5. [[⬆]](#toc) <a name='Изменение размера LVM тома'>resize_lvm</a>
+
+#### 6. [[⬆]](#toc) <a name='delete_lvm'>delete_lvm</a>
+
+
+
+
+
+
+
+
+
+
+
 ![LVM](https://github.com/user-attachments/assets/f25b220b-7585-449b-b6a6-b2cce02bf425)
 
 ######  Посмотреть наличие LVM
