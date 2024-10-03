@@ -9,7 +9,8 @@
 5. [Изменение размера LVM тома](#resize_lvm)
 6. [Удалить LVM раздел](#delete_lvm)
 
-![f2474b4a-8314-41ea-9f42-1a31eed392fa](https://github.com/user-attachments/assets/e398fa3d-6326-4bbd-8a0f-cff033988c59)
+![60d48245-d1a6-4f9f-bbed-fa233881a859](https://github.com/user-attachments/assets/ec1dee5e-20df-4dec-98e6-e0aeaaa688b5)
+
 
 #### 1. [[⬆]](#toc) <a name='availability'>Посмотреть наличие LVM</a>
 
