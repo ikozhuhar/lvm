@@ -9,6 +9,8 @@
 5. [Изменение размера LVM тома](#resize_lvm)
 6. [Удалить LVM раздел](#delete_lvm)
 
+https://losst.pro/sozdanie-i-nastrojka-lvm-linux
+
 ![60d48245-d1a6-4f9f-bbed-fa233881a859](https://github.com/user-attachments/assets/ec1dee5e-20df-4dec-98e6-e0aeaaa688b5)
 
 
