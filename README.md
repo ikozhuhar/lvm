@@ -36,8 +36,9 @@
 
 
 
+![photo_5474222761678331906_w](https://github.com/user-attachments/assets/78636328-478f-4768-b51f-fa57796cc9f2)
 
-![LVM](https://github.com/user-attachments/assets/f25b220b-7585-449b-b6a6-b2cce02bf425)
+
 
 ######  Посмотреть наличие LVM
 ```php
