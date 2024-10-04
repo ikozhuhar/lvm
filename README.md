@@ -133,104 +133,82 @@ sudo mount /dev/mapper/otus_volume-lv10 /mnt/lv10
 
 ![image](https://github.com/user-attachments/assets/a39d736e-94d4-4926-af2a-f9a2354cca4e)
 
-;kfvh;a
-as;dlfkj;asld
-as'd'alsdkvja
-s'dlas'ldvk
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #### 5. [[⬆]](#toc) <a name='Изменение размера LVM тома'>Изменение размера LVM тома</a>
+
+##### Допустим, перед нами встала проблема нехватки свободного места в директории //mnt/lv01. Мы можем расширить файловую систему на LV /dev/mapper/otus_volume-lv01 за счет нового блочного устройства.
+
+##### Для начала так же необходимо создать PV:
+```
+sudo pvcreate /dev/sdh
+```
+
+##### Далее необходимо расширить VG добавив в него этот диск
+```
+sudovgextend otus_volume /dev/sdh
+```
+
+##### Убедимся что новый диск присутствует в новой VG:
+```
+sudo vgdisplay -v otus_volume | grep 'PV Name'
+```
+
+##### И что места в VG прибавилось
+```
+sudo vgs
+```
+##### Добавить места на lv01
+```
+$ sudo lvextend /dev/mapper/otus_volume-lv01 -L +10G  
+$ sudo lvextend /dev/mapper/otus_volume-lv01 -L +10G -r # ключ -r запускает resize2fs  
+$ sudo resize2fs /dev/mapper/otus_volume-lv01
+```
 
 #### 6. [[⬆]](#toc) <a name='delete_lvm'>Удалить LVM раздел</a>
 
-
-
-
-
-
-#### Создание LVM
-
-###### Удаление физического тома
-```php
-$ sudo pvremove /dev/sdb{1,2,3}
+##### Удаление физического тома
+```
+sudo pvremove /dev/sdb{1,2,3}
 ```
 
-
-###### Удаление Волюм Группы
-```php
-$ sudo vgremove <name_group>  
-$ sudo vgdisplay
+##### Удаление Волюм Группы
+```
+sudo vgremove otus_volume
+sudo vgdisplay
 ```
 
-###### 3. Создание/Удаление Логического Тома
-
-###### Удаление Логического Тома
-```php
-$ sudo lvremove test_group lv--02
+##### Удаление Логического Тома
+```
+sudo lvremove otus_volume lv01
 ```
 
-###### Создание нового Тома и перемещение на него 100% свободного места
-```php
-$ sudo lvcreate <name_group> -n <new_name_logical_tom> -l 100%FREE
-$ sudo mkfs.ext4 /dev/mapper/<new_name_logical_tom>
+##### Создание нового Тома и перемещение на него 100% свободного места
+```
+sudo lvcreate <name_group> -n <new_name_logical_tom> -l 100%FREE
+sudo mkfs.ext4 /dev/mapper/<new_name_logical_tom>
 ```
 
-###### Вывести Логический Том из группы
-```php
-$ sudo vgreduce <name_group> /dev/sda1
+##### Вывести Логический Том из группы
+```
+sudo vgreduce <name_group> /dev/sda1
 ```
 
-###### Вывести диск из состава LVM
-```php
-$ sudo pvremove /dev/sda1
+##### Вывести диск из состава LVM
+```
+sudo pvremove /dev/sda1
 ```
 
-###### Перенести данные из одного Логического Тома на другой
-```php
-$ sudo pvmove /dev/sda1 /dev/sda2  
-$ sudo pvmove /dev/sda1 # или можно просто освободить нужный диск
+##### Перенести данные из одного Логического Тома на другой
 ```
-
-###### 4. Создание файлововй системы на Логическом Томе
-```php
-$ sudo mkfs.ext4 /dev/mapper/<name_group>-lv01
+sudo pvmove /dev/sda1 /dev/sda2  
+sudo pvmove /dev/sda1 # или можно просто освободить нужный диск
 ```
-
-###### 5. Монтируем
-```php
-$ sudo mount /dev/mapper/<name_group>-lv01 /mnt/lv-01 
-```
-
-###### 6. Добавить места на lv-01
-```php
-$ sudo lvextend /dev/mapper/<name_group>-lv01 -L +10G  
-$ sudo lvextend /dev/mapper/<name_group>-lv01 -L +10G -r # ключ -r запускает resize2fs  
-$ sudo resize2fs /dev/mapper/<name_group>-lv01
-```
-
 
 ###### Это программа, которая информирует ядро операционной системы об изменениях таблицы разделов,  отправляя запрос операционной системе на повторное чтение таблицы разделов
-```php
-$ sudo partprobe
+```
+sudo partprobe
 ```
 
 ###### Увеличение файловой системы на диске
-```php
-$ sudo resize2fs /dev/mapper/test_group-lv-01
 ```
-
-https://www.youtube.com/watch?v=9ttk2-BHMSM
+sudo resize2fs /dev/mapper/test_group-lv-01
+```
