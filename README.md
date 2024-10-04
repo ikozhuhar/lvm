@@ -9,6 +9,7 @@
 5. [Создание файловой системы на томе](#creating_fs)
 6. [Изменение размера LVM тома](#resize_lvm)
 7. [Удалить LVM раздел](#delete_lvm)
+8. [Автоматизация создания LVM c Ansible](#creating_automated)
 
 ![60d48245-d1a6-4f9f-bbed-fa233881a859](https://github.com/user-attachments/assets/ec1dee5e-20df-4dec-98e6-e0aeaaa688b5)
 
@@ -210,4 +211,11 @@ sudo partprobe
 ##### Увеличение файловой системы на логическом разделе
 ```
 sudo resize2fs /dev/mapper/volume_group-lv01
+```
+
+#### 8. [[⬆]](#toc) <a name='creating_automated'>Автоматизация создания LVM c Ansible</a>
+
+![image](https://github.com/user-attachments/assets/3831318e-3fa9-428e-bf83-054a469644e6)
+```
+ansible-playbook playbook_lvm.yml
 ```
