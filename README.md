@@ -16,22 +16,22 @@ https://losst.pro/sozdanie-i-nastrojka-lvm-linux
 
 #### 1. [[⬆]](#toc) <a name='availability'>Смотрим наличие LVM</a>
 
-######  Физические разделы
+#####  Физические разделы
 ```
 sudo pvs
 sudo pvdisplay
 ```
-######  Группы разделов
+#####  Группы разделов
 ```
 sudo vgs
 sudo vgdispaly
 ```
-######  Логические тома
+#####  Логические тома
 ```
 sudo lvs
 sudo lvdispaly
 ```
-######  Другие варианты
+#####  Другие варианты
 ```
 sudo lvs -o lv_name,vg_name,lv_attr,seg_pe_ranges
 sudo alias llvs='lvs -o lv_name,vg_name,lv_attr,seg_pe_ranges '
@@ -41,14 +41,14 @@ sudo alias llvs='lvs -o lv_name,vg_name,lv_attr,seg_pe_ranges '
 
 #### 2. [[⬆]](#toc) <a name='creating_physical_lvm'>Создание физических LVM разделов</a>
 
-###### Создание физического раздела
+##### Создание физического раздела
 ```
 sudo pvcreate /dev/sde1 /dev/sdf1 /dev/sdg1
 ```
 ![image](https://github.com/user-attachments/assets/99c813ab-8124-4bdb-8740-9e89a94f861c)
 ![image](https://github.com/user-attachments/assets/12175700-9718-46de-a1f5-923750227507)
 
-###### Смотрим результат
+##### Смотрим результат
 
 ```
 sudo pvdisplay
@@ -58,11 +58,64 @@ sudo pvs
 ![image](https://github.com/user-attachments/assets/a48bf118-271b-4f4b-a008-55e49b12542e)
 
 
-
-
 #### 3. [[⬆]](#toc) <a name='creating_group_lvm'>Создание группы разделов LVM</a>
 
+##### Создание группы
+```
+sudo vgcreate otus_volume /dev/sde1 /dev/sdf1 /dev/sdg1
+```
+![image](https://github.com/user-attachments/assets/ed899482-3c27-4792-a210-6e5b3589cb62)
+
+##### Смотрим результат
+```
+sudo vgs
+sudo vgdisplay
+```
+![image](https://github.com/user-attachments/assets/913322b9-6133-429c-954c-dab47bdda5f0)
+
 #### 4. [[⬆]](#toc) <a name='creating_logical_lvm'>Создание логических томов LVM</a>
+
+##### Создание логических томом
+```
+sudo lvcreate otus_volume --name lv01 --size 5G
+sudo lvcreate otus_volume --name lv02 --size 10G
+sudo lvcreate otus_volume --name lv03 --size 8G
+sudo lvcreate otus_volume --name lv04 --size 6G
+sudo lvcreate otus_volume --name lv05 --size 10G
+sudo lvcreate otus_volume --name lv06 --size 10G
+sudo lvcreate otus_volume --name lv07 --size 10G
+sudo lvcreate otus_volume --name lv08 --size 10G
+sudo lvcreate otus_volume --name lv09 --size 10G
+sudo lvcreate otus_volume --name lv10 --size 10G
+```
+![image](https://github.com/user-attachments/assets/49af73c8-2541-40e2-89bb-21163b08836e)
+
+##### Смотрим результат
+```
+sudo lvs
+sudo lvdisplay
+lsblk
+```
+![image](https://github.com/user-attachments/assets/b83a0dd3-5a10-46b5-92b7-9025f0b46232)
+![image](https://github.com/user-attachments/assets/e9dc551d-1db1-4d35-bcc0-eeadd2566c15)
+![image](https://github.com/user-attachments/assets/2301d74c-e9d4-454d-b1d5-71ae044fb0ac)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #### 5. [[⬆]](#toc) <a name='Изменение размера LVM тома'>Изменение размера LVM тома</a>
 
@@ -75,22 +128,11 @@ sudo pvs
 
 #### Создание LVM
 
-###### 1. Создание/Удаление физического тома
-```php
-$ sudo pvcreate /dev/sdb1 /dev/sdb2 /dev/sdb3
-$ sudo pvdisplay
-```
 ###### Удаление физического тома
 ```php
 $ sudo pvremove /dev/sdb{1,2,3}
 ```
 
-###### 2. Создание Волюм Группы
-```php
-$ sudo vgcreate <name_group> /dev/sdb1 /dev/sdb2 /dev/sdb3
-$ sudo vgdisplay
-$ sudo pvdisplay
-```
 
 ###### Удаление Волюм Группы
 ```php
@@ -99,12 +141,6 @@ $ sudo vgdisplay
 ```
 
 ###### 3. Создание/Удаление Логического Тома
-```php
-$ sudo lvcreate <name_group> -n lv01 -L { 100M | 100G } # Первый вариант
-$ sudo lvcreate test_group --name lv-01 --size 5G # Второй вариант
-$ sudo lvdisplay
-$ sudo vgdisplay
-```
 
 ###### Удаление Логического Тома
 ```php
