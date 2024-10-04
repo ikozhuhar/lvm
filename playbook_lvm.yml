@@ -1,0 +1,23 @@
+- name: Create a New LVM Partition
+  hosts: all
+  become: true
+
+  tasks:
+
+    - name: 'Создание физических LVM разделов'
+      command: sudo pvcreate /dev/sde1 /dev/sdf1 /dev/sdg1
+
+    - name: 'Создание группы разделов LVM'
+      command: sudo vgcreate otus_volume /dev/sde1 /dev/sdf1 /dev/sdg1
+
+    - name: 'Создание логических томов LVM'
+      command: sudo lvcreate otus_volume --name lv01 --size 5G
+
+    - name: 'Создадим на LV файловую систему'
+      command: sudo mkfs.ext4 /dev/mapper/otus_volume-lv01
+
+    - name: 'Создадим директории'
+      command: sudo mkdir /mnt/lv01
+
+    - name: 'Монтируем'
+      command: sudo mount /dev/mapper/otus_volume-lv01 /mnt/lv01
