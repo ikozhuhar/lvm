@@ -96,10 +96,41 @@ sudo lvs
 sudo lvdisplay
 lsblk
 ```
-![image](https://github.com/user-attachments/assets/b83a0dd3-5a10-46b5-92b7-9025f0b46232)
+![image](https://github.com/user-attachments/assets/29ae64d9-45bc-464f-9a0c-bbd6c8dc1863)
 ![image](https://github.com/user-attachments/assets/e9dc551d-1db1-4d35-bcc0-eeadd2566c15)
 ![image](https://github.com/user-attachments/assets/2301d74c-e9d4-454d-b1d5-71ae044fb0ac)
 
+##### Создадим на LV файловую систему и смонтируем его
+```
+sudo mkfs.ext4 /dev/mapper/otus_volume-lv01
+sudo mkfs.ext4 /dev/mapper/otus_volume-lv02
+sudo mkfs.ext4 /dev/mapper/otus_volume-lv03
+sudo mkfs.ext4 /dev/mapper/otus_volume-lv04
+sudo mkfs.ext4 /dev/mapper/otus_volume-lv05
+sudo mkfs.ext4 /dev/mapper/otus_volume-lv06
+sudo mkfs.ext4 /dev/mapper/otus_volume-lv07
+sudo mkfs.ext4 /dev/mapper/otus_volume-lv08
+sudo mkfs.ext4 /dev/mapper/otus_volume-lv09
+sudo mkfs.ext4 /dev/mapper/otus_volume-lv010
+```
+![image](https://github.com/user-attachments/assets/a92a90c4-cd83-4c7c-bcf1-a84b81e925ec)
+
+##### Создадим директории и смонтируем
+```
+sudo mkdir /mnt/lv{01,02,03,04,05,06,07,08,09,10}
+
+sudo mount /dev/mapper/otus_volume-lv01 /mnt/lv01
+sudo mount /dev/mapper/otus_volume-lv02 /mnt/lv02
+sudo mount /dev/mapper/otus_volume-lv03 /mnt/lv03
+sudo mount /dev/mapper/otus_volume-lv04 /mnt/lv04
+sudo mount /dev/mapper/otus_volume-lv05 /mnt/lv05
+sudo mount /dev/mapper/otus_volume-lv06 /mnt/lv06
+sudo mount /dev/mapper/otus_volume-lv07 /mnt/lv07
+sudo mount /dev/mapper/otus_volume-lv08 /mnt/lv08
+sudo mount /dev/mapper/otus_volume-lv09 /mnt/lv09
+sudo mount /dev/mapper/otus_volume-lv10 /mnt/lv10
+```
+![image](https://github.com/user-attachments/assets/a0fcb46d-16a0-4e2b-88ef-dc25823f8bd1)
 
 
 
