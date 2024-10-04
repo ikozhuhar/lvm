@@ -9,7 +9,7 @@
 5. [Создание файловой системы на томе](#creating_fs)
 6. [Изменение размера LVM тома](#resize_lvm)
 7. [Удаление LVM разделов](#delete_lvm)
-8. [Автоматизация создания LVM c Ansible](#creating_automated)  
+8. [Автоматизация создания LVM c Ansible](#creating_automated)    
 
 ![60d48245-d1a6-4f9f-bbed-fa233881a859](https://github.com/user-attachments/assets/ec1dee5e-20df-4dec-98e6-e0aeaaa688b5)
 
