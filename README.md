@@ -130,7 +130,12 @@ sudo mount /dev/mapper/otus_volume-lv09 /mnt/lv09
 sudo mount /dev/mapper/otus_volume-lv10 /mnt/lv10
 ```
 ![image](https://github.com/user-attachments/assets/a0fcb46d-16a0-4e2b-88ef-dc25823f8bd1)
+![image](https://github.com/user-attachments/assets/a39d736e-94d4-4926-af2a-f9a2354cca4e)
 
+;kfvh;a
+as;dlfkj;asld
+as'd'alsdkvja
+s'dlas'ldvk
 
 
 
