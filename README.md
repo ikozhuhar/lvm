@@ -163,7 +163,7 @@ $ sudo lvextend /dev/mapper/otus_volume-lv01 -L +10G -r # ключ -r запус
 $ sudo resize2fs /dev/mapper/otus_volume-lv01
 ```
 
-#### 7. [[⬆]](#toc) <a name='delete_lvm'>Удалить LVM раздел</a>
+#### 7. [[⬆]](#toc) <a name='delete_lvm'>Удаление LVM разделов</a>
 
 ##### Удаление физического тома
 ```
