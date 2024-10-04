@@ -6,10 +6,9 @@
 2. [Создание физических LVM разделов](#creating_physical_lvm)
 3. [Создание группы разделов LVM](#creating_group_lvm)
 4. [Создание логических томов LVM](#creating_logical_lvm)
-5. [Изменение размера LVM тома](#resize_lvm)
-6. [Удалить LVM раздел](#delete_lvm)
-
-https://losst.pro/sozdanie-i-nastrojka-lvm-linux
+5. [Создание файловой системы на томе](#creating_fs)
+6. [Изменение размера LVM тома](#resize_lvm)
+7. [Удалить LVM раздел](#delete_lvm)
 
 ![60d48245-d1a6-4f9f-bbed-fa233881a859](https://github.com/user-attachments/assets/ec1dee5e-20df-4dec-98e6-e0aeaaa688b5)
 
@@ -99,7 +98,7 @@ lsblk
 ![image](https://github.com/user-attachments/assets/e9dc551d-1db1-4d35-bcc0-eeadd2566c15)
 ![image](https://github.com/user-attachments/assets/2301d74c-e9d4-454d-b1d5-71ae044fb0ac)
 
-##### Создадим на LV файловую систему
+##### 5. [[⬆]](#toc) <a name='creating_fs'>Создадим на LV файловую систему</a>
 ```
 sudo mkfs.ext4 /dev/mapper/otus_volume-lv01
 sudo mkfs.ext4 /dev/mapper/otus_volume-lv02
@@ -133,7 +132,7 @@ sudo mount /dev/mapper/otus_volume-lv10 /mnt/lv10
 
 ![image](https://github.com/user-attachments/assets/a39d736e-94d4-4926-af2a-f9a2354cca4e)
 
-#### 5. [[⬆]](#toc) <a name='Изменение размера LVM тома'>Изменение размера LVM тома</a>
+#### 6. [[⬆]](#toc) <a name='Изменение размера LVM тома'>Изменение размера LVM тома</a>
 
 ##### Допустим, перед нами встала проблема нехватки свободного места в директории //mnt/lv01. Мы можем расширить файловую систему на LV /dev/mapper/otus_volume-lv01 за счет нового блочного устройства.
 
@@ -163,7 +162,7 @@ $ sudo lvextend /dev/mapper/otus_volume-lv01 -L +10G -r # ключ -r запус
 $ sudo resize2fs /dev/mapper/otus_volume-lv01
 ```
 
-#### 6. [[⬆]](#toc) <a name='delete_lvm'>Удалить LVM раздел</a>
+#### 7. [[⬆]](#toc) <a name='delete_lvm'>Удалить LVM раздел</a>
 
 ##### Удаление физического тома
 ```
