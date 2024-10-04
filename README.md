@@ -100,7 +100,7 @@ lsblk
 ![image](https://github.com/user-attachments/assets/e9dc551d-1db1-4d35-bcc0-eeadd2566c15)
 ![image](https://github.com/user-attachments/assets/2301d74c-e9d4-454d-b1d5-71ae044fb0ac)
 
-##### Создадим на LV файловую систему и смонтируем его
+##### Создадим на LV файловую систему
 ```
 sudo mkfs.ext4 /dev/mapper/otus_volume-lv01
 sudo mkfs.ext4 /dev/mapper/otus_volume-lv02
