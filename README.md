@@ -14,15 +14,51 @@ https://losst.pro/sozdanie-i-nastrojka-lvm-linux
 ![60d48245-d1a6-4f9f-bbed-fa233881a859](https://github.com/user-attachments/assets/ec1dee5e-20df-4dec-98e6-e0aeaaa688b5)
 
 
-#### 1. [[⬆]](#toc) <a name='availability'>Посмотреть наличие LVM</a>
+#### 1. [[⬆]](#toc) <a name='availability'>Смотрим наличие LVM</a>
 
-##### &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
-![image](https://github.com/user-attachments/assets/c2d27d37-a182-4ef0-8105-b2d43056856f)
+######  Физические разделы
+```
+sudo pvs
+sudo pvdisplay
+```
+######  Группы разделов
+```
+sudo vgs
+sudo vgdispaly
+```
+######  Логические тома
+```
+sudo lvs
+sudo lvdispaly
+```
+######  Другие варианты
+```
+sudo lvs -o lv_name,vg_name,lv_attr,seg_pe_ranges
+sudo alias llvs='lvs -o lv_name,vg_name,lv_attr,seg_pe_ranges '
+```
+![image](https://github.com/user-attachments/assets/c79785d9-83f0-4493-8dc5-79cd37ac93d3)
 
-##### &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
-![image](https://github.com/user-attachments/assets/072f5c4b-0d9b-46f3-abbf-3b68c9ed2b39)
 
 #### 2. [[⬆]](#toc) <a name='creating_physical_lvm'>Создание физических LVM разделов</a>
+
+###### Создание физического раздела
+```
+sudo pvcreate /dev/sde1 /dev/sdf1 /dev/sdg1
+```
+![image](https://github.com/user-attachments/assets/99c813ab-8124-4bdb-8740-9e89a94f861c)
+![image](https://github.com/user-attachments/assets/12175700-9718-46de-a1f5-923750227507)
+
+###### Смотрим результат
+
+```
+sudo pvdisplay
+sudo pvs
+```
+![image](https://github.com/user-attachments/assets/002e813d-e019-4847-881b-c4fc12545333)
+![image](https://github.com/user-attachments/assets/a48bf118-271b-4f4b-a008-55e49b12542e)
+
+
+
 
 #### 3. [[⬆]](#toc) <a name='creating_group_lvm'>Создание группы разделов LVM</a>
 
@@ -36,28 +72,6 @@ https://losst.pro/sozdanie-i-nastrojka-lvm-linux
 
 
 
-
-
-
-
-
-
-
-
-######  Посмотреть наличие LVM
-```php
-$ sudo pvs
-```
-
-######  Посмотреть Волюм Группы
-```php
-$ sudo vgs
-```
-
-######  Посмотреть список логических томов
-```php
-$ sudo lvs
-```
 
 #### Создание LVM
 
