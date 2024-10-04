@@ -216,7 +216,7 @@ sudo resize2fs /dev/mapper/volume_group-lv01
 #### 8. [[⬆]](#toc) <a name='creating_automated'>Автоматизация создания LVM c Ansible</a>
 
 ##### Структура
-![image](https://github.com/user-attachments/assets/81a171da-af65-4303-bcf4-ea065f959818)
+![image](https://github.com/user-attachments/assets/e3bbaec8-ecd9-43f8-9652-4729e5af2f68)
 
 ##### Запускаю
 ```
