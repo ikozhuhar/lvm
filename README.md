@@ -34,7 +34,6 @@ sudo lvdispaly
 #####  Другие варианты
 ```
 sudo lvs -o lv_name,vg_name,lv_attr,seg_pe_ranges
-sudo alias llvs='lvs -o lv_name,vg_name,lv_attr,seg_pe_ranges '
 ```
 ![image](https://github.com/user-attachments/assets/c79785d9-83f0-4493-8dc5-79cd37ac93d3)
 
