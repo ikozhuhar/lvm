@@ -283,5 +283,5 @@ umount /mnt/var
 /dev/mapper/my_vg-home /home ext4 relatime 1 1
 /dev/mapper/my_var /var ext4 relatime 1 1
 /dev/mapper/my_vg-tmp /tmp ext4 noatime 0 2
-/dev /mapper /my _ vg-swap none swap SW 0 0
+/dev /mapper /my_vg-swap none swap SW 0 0
 ```
