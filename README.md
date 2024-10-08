@@ -229,7 +229,7 @@ ansible-playbook playbook_lvm.yml
 
 1. Весь Linux Для тех, кто хочет стать профессионалом, стр.302
 
-##### Сделано по книге
+> Сделано по книге
 
 ##### Создаем физический том (PV)
 pvcreate /dev/sdb1 /dev/sdb2 /dev/sdb3
