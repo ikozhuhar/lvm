@@ -228,3 +228,49 @@ ansible-playbook playbook_lvm.yml
 #### 9. [[⬆]](#toc) <a name='recommended_sources'>Дополнительные источники</a>
 
 1. Весь Linux Для тех, кто хочет стать профессионалом, стр.302
+
+##### Сделано по книге
+
+##### Создаем физический том (PV)
+pvcreate /dev/sdb1 /dev/sdb2 /dev/sdb3
+
+##### Теперь нужно создать группу томов с помощью команды vgcreate
+vgcreate my_vg /dev/sdb
+
+##### Создаем отдельные логические тома (команда lvcreate)
+lvcreate -n swap -L8G my_vg
+lvcreate -n home -L500G my_vg
+lvcreate -n var -LЗOG my_vg
+lvcreate -n tmp -LSG my_vg
+
+##### Созданные нами разделы будут храниться в папке /dev/my _ vg/.  В этом каталоге вы найдете файлы home, tmp, var (правда, это будут ссылки, а не файлы, но суть от этого не меняется). 
+
+##### Когда созданы логические тома, можно создать на них файловые системы (отформатировать их). Вы можете использовать любую файловую си.стему, я предпочитаю ext4: 
+
+mkfs.ext4 -L var /dev/my_vg/var
+mkfs.ext4 -L home /dev/my_vg/home
+mkfs.ext4 -L tmp /dev/my_vgftmp
+mkswap -L swap /dev/my_vg/swap
+swapon /dev/my_vg/swap 
+
+##### Первые три команды создают файловую систему ext4 на устройствах /dev/my_vg/var, /dev/my_vg/home и /dev/my_vg/tmp. Последние две создают раздел подкачки и активируюг его.
+
+mkdir /mnt/home
+mkdir /mnt/var
+
+mount /dev/my_vg/home /mnt/home
+mount /dev/my_vg/var /mnt/var
+
+##### Здесь копируется все для переноса папки home и var со старого диска на новый. Подробнее описано в книге Весь Linux Для тех, кто хочет стать профессионалом, стр.302
+cр -а /home/* /mnt/home
+cp -а /var/* /mnt/var
+
+umount /mnt/home
+umount /mnt/var 
+
+##### Почти все. Теперь нужно добавить в /etc/fstab записи, монтирующие файловые системы /home, /var, /tmp, и указать в нем раздел подкачки:
+
+/dev/mapper/my_vg-home /home ext4 relatime 1 1
+/dev/mapper/my_var /var ext4 relatime 1 1
+/dev/m�pper/my_vg-tmp /tmp ext4 noatime 0 2
+/dev /mapper /my _ vg-swap none swap SW 0 0
