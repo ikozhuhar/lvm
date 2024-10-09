@@ -238,7 +238,7 @@ pvcreate /dev/sdb1 /dev/sdb2 /dev/sdb3
 
 ##### Теперь нужно создать группу томов с помощью команды vgcreate
 ```
-vgcreate my_vg /dev/sdb
+vgcreate my_vg /dev/sdb1 /dev/sdb2 /dev/sdb3
 ```
 
 ##### Создаем отдельные логические тома (команда lvcreate)
