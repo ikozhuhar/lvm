@@ -285,3 +285,5 @@ umount /mnt/var
 /dev/mapper/my_vg-tmp /tmp ext4 noatime 0 2
 /dev /mapper /my_vg-swap none swap SW 0 0
 ```
+
+1. [Повесть о Линукс и LVM] (http://xgu.ru/wiki/LVM)
