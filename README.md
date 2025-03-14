@@ -287,4 +287,4 @@ umount /mnt/var
 ```
 
 1. [Повесть о Линукс и LVM] (http://xgu.ru/wiki/LVM)
-2. (Logical Volume Manager)[https://lpic2book.github.io/src/lpic2.204.3/]
+2. [Logical Volume Manager](https://lpic2book.github.io/src/lpic2.204.3/)
