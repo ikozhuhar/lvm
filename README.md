@@ -228,8 +228,14 @@ ansible-playbook playbook_lvm.yml
 #### 9. [[⬆]](#toc) <a name='recommended_sources'>Дополнительные источники</a>
 
 1. Весь Linux Для тех, кто хочет стать профессионалом, стр.302
+2. [Повесть о Линукс и LVM](http://xgu.ru/wiki/LVM)
+3. [Logical Volume Manager](https://lpic2book.github.io/src/lpic2.204.3/)
 
-> Сделано по книге
+
+<br><br>
+
+
+#### 10. [[⬆]](#toc)  Сделано по книге
 
 ##### Создаем физический том (PV)
 ```
@@ -285,6 +291,3 @@ umount /mnt/var
 /dev/mapper/my_vg-tmp /tmp ext4 noatime 0 2
 /dev /mapper /my_vg-swap none swap SW 0 0
 ```
-
-1. [Повесть о Линукс и LVM] (http://xgu.ru/wiki/LVM)
-2. [Logical Volume Manager](https://lpic2book.github.io/src/lpic2.204.3/)
