@@ -230,6 +230,7 @@ ansible-playbook playbook_lvm.yml
 1. Весь Linux Для тех, кто хочет стать профессионалом, стр.302
 2. [Повесть о Линукс и LVM](http://xgu.ru/wiki/LVM)
 3. [Logical Volume Manager](https://lpic2book.github.io/src/lpic2.204.3/)
+4. [LVM HOWTO](https://translated.turbopages.org/proxy_u/en-ru.ru.74fd3ccb-67e96cfe-84f5f03a-74722d776562/https/tldp.org/HOWTO/LVM-HOWTO/index.html)
 
 
 <br><br>
