@@ -307,3 +307,5 @@ sudo lvdisplay
 sudo vgdisplay
 ```
 
+![image](https://github.com/user-attachments/assets/34281713-0b07-4e01-99a2-05c5baa5f11e)
+
