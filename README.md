@@ -292,3 +292,18 @@ umount /mnt/var
 /dev/mapper/my_vg-tmp /tmp ext4 noatime 0 2
 /dev /mapper /my_vg-swap none swap SW 0 0
 ```
+
+
+##### Реальный пример увеличения логического диска. Сам диск 500ГБ, а на логический диск отвели только 100
+
+```ruby
+# Делалось на Ubuntu 22.04.4 LTS
+# Увеличиваем логический диск на 100ГБ
+sudo vgdisplay
+sudo lvdisplay
+sudo lvextend /dev/ubuntu-vg/ubuntu-lv -L +100G
+sudo resize2fs /dev/ubuntu-vg/ubuntu-lv
+sudo lvdisplay
+sudo vgdisplay
+```
+
