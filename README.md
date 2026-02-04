@@ -369,7 +369,7 @@ sudo resize2fs /dev/mapper/VG453-lv_root
 sudo resize2fs /dev/mapper/vg01-lv_dir01
 ```
 
-_КРАТКИЙ ВАРИАНТ КОМАНД:_
+_Краткий вариант команд:_
 
 ```ruby
 # Уменьшить lv_home до 4.2T
