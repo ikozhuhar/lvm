@@ -372,7 +372,7 @@ sudo resize2fs /dev/mapper/vg01-lv_dir01
 _Краткий вариант команд:_
 
 ```ruby
-# Уменьшить lv_dir01 до 30G
+# Уменьшить lv_dir03 до 5G
 sudo umount /dev/mapper/vg01-lv_dir03
 sudo e2fsck -f /dev/mapper/vg01-lv_dir03
 sudo resize2fs /dev/mapper/vg01-lv_dir03 5G
