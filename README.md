@@ -310,3 +310,87 @@ sudo vgdisplay
 ![image](https://github.com/user-attachments/assets/cbb6045e-a606-47a5-8892-a1bf75eb5841)
 
 
+<br><br>
+
+✅ _Перенос пространства LVM с home на root_
+
+1. Проверка текущего состояния LVM
+
+# Просмотр информации о физических томах
+sudo pvdisplay
+
+# Просмотр информации о группе томов
+sudo vgdisplay VG453
+
+# Подробная информация о логических томах
+sudo lvdisplay VG453/lv_home
+sudo lvdisplay VG453/lv_root
+
+
+2. Проверка файловой системы (для home)
+
+# Проверьте и восстановите файловую систему
+sudo umount /home
+sudo e2fsck -f /dev/mapper/VG453-lv_home
+sudo mount /home
+
+
+3. Уменьшение домашнего раздела (lv_home)
+
+# Уменьшим файловую систему (ext3/ext4)
+sudo umount /home
+sudo e2fsck -f /dev/mapper/vg01-lv_dir03
+sudo resize2fs /dev/mapper/VG453-lv_home 5G
+
+# Уменьшим логический том
+sudo lvreduce -L 4.2T /dev/mapper/VG453-lv_home
+sudo lvreduce -L 5G /dev/mapper/vg01-lv_dir03
+
+# Проверим файловую систему
+sudo e2fsck -f /dev/mapper/VG453-lv_home
+sudo e2fsck -f /dev/mapper/vg01-lv_dir03
+
+# Смонтируем обратно
+sudo mount /home
+
+
+4. Увеличение корневого раздела (lv_root)
+
+# Увеличим логический том
+sudo lvextend -L +19.8T /dev/mapper/VG453-lv_root
+sudo lvextend -l +100%FREE /dev/mapper/lvg01-lv_dir01
+
+# Увеличим файловую систему
+sudo resize2fs /dev/mapper/VG453-lv_root
+sudo resize2fs /dev/mapper/vg01-lv_dir01
+
+
+КРАТКИЙ ВАРИАНТ КОМАНД:
+
+# Уменьшить lv_home до 4.2T
+sudo umount /home
+sudo e2fsck -f /dev/mapper/VG453-lv_home
+sudo resize2fs /dev/mapper/VG453-lv_home 4.2T
+sudo lvreduce -L 4.2T /dev/mapper/VG453-lv_home
+sudo mount /home
+
+# Увеличить lv_root
+sudo lvextend -L +19.8T /dev/mapper/VG453-lv_root
+sudo resize2fs /dev/mapper/VG453-lv_root
+
+
+⚠️ ВАЖНЫЕ ПРЕДУПРЕЖДЕНИЯ:
+
+1. Создайте резервные копии важных данных!
+2. Убедитесь, что никто не использует файлы в /home во время операции
+3. Если у вас есть открытые файлы в /home, используйте lsof /home для проверки
+4. Рекомендуется выполнять операции из single-user mode или rescue mode
+5. Проверьте, что у вас достаточно свободных экстентов в VG: sudo vgdisplay VG453
+
+Если возникнут ошибки при уменьшении файловой системы, возможно, потребуется:
+
+1. Проверить занятое место: du -sh /home/\*
+2. Переместить некоторые данные перед уменьшением
+3. Использовать resize2fs с флагом -M для минимального размера
+
+
