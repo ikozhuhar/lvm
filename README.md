@@ -316,6 +316,7 @@ sudo vgdisplay
 
 1. Проверка текущего состояния LVM
 
+```ruby
 # Просмотр информации о физических томах
 sudo pvdisplay
 
@@ -325,18 +326,20 @@ sudo vgdisplay VG453
 # Подробная информация о логических томах
 sudo lvdisplay VG453/lv_home
 sudo lvdisplay VG453/lv_root
-
+```
 
 2. Проверка файловой системы (для home)
 
+```ruby
 # Проверьте и восстановите файловую систему
 sudo umount /home
 sudo e2fsck -f /dev/mapper/VG453-lv_home
 sudo mount /home
-
+```
 
 3. Уменьшение домашнего раздела (lv_home)
 
+```ruby
 # Уменьшим файловую систему (ext3/ext4)
 sudo umount /home
 sudo e2fsck -f /dev/mapper/vg01-lv_dir03
@@ -352,10 +355,11 @@ sudo e2fsck -f /dev/mapper/vg01-lv_dir03
 
 # Смонтируем обратно
 sudo mount /home
-
+```
 
 4. Увеличение корневого раздела (lv_root)
 
+```ruby
 # Увеличим логический том
 sudo lvextend -L +19.8T /dev/mapper/VG453-lv_root
 sudo lvextend -l +100%FREE /dev/mapper/lvg01-lv_dir01
@@ -377,6 +381,7 @@ sudo mount /home
 # Увеличить lv_root
 sudo lvextend -L +19.8T /dev/mapper/VG453-lv_root
 sudo resize2fs /dev/mapper/VG453-lv_root
+```
 
 
 ⚠️ ВАЖНЫЕ ПРЕДУПРЕЖДЕНИЯ:
