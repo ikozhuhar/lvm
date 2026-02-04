@@ -372,16 +372,17 @@ sudo resize2fs /dev/mapper/vg01-lv_dir01
 _Краткий вариант команд:_
 
 ```ruby
-# Уменьшить lv_home до 4.2T
-sudo umount /home
-sudo e2fsck -f /dev/mapper/VG453-lv_home
-sudo resize2fs /dev/mapper/VG453-lv_home 4.2T
-sudo lvreduce -L 4.2T /dev/mapper/VG453-lv_home
-sudo mount /home
+# Уменьшить lv_dir01 до 30G
+sudo umount /dev/mapper/vg01-lv_dir03
+sudo e2fsck -f /dev/mapper/vg01-lv_dir03
+sudo resize2fs /dev/mapper/vg01-lv_dir03 5G
+sudo lvreduce -L 5G /dev/mapper/vg01-lv_dir03
+sudo e2fsck -f /dev/mapper/vg01-lv_dir03
+sudo mount /dev/mapper/vg01-lv_dir03
 
 # Увеличить lv_root
-sudo lvextend -L +19.8T /dev/mapper/VG453-lv_root
-sudo resize2fs /dev/mapper/VG453-lv_root
+sudo lvextend -l +100%FREE /dev/mapper/lvg01-lv_dir01
+sudo resize2fs /dev/mapper/vg01-lv_dir01
 ```
 
 
