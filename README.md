@@ -385,6 +385,11 @@ sudo lvextend -l +100%FREE /dev/mapper/lvg01-lv_dir01
 sudo resize2fs /dev/mapper/vg01-lv_dir01
 ```
 
+```ruby
+# Увеличение/Уменьшение логического тома
+sudo lvresize --resizefs --size 8G /dev/mapper/lvg01-lv_dir01
+```
+
 
 ⚠️ ВАЖНЫЕ ПРЕДУПРЕЖДЕНИЯ:
 
